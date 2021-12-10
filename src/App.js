@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 
 function App() {
+  const [memos, setState] = useState(["memo1", "memo2", "memo3"]);
   const [text, setText] = useState("");
 
+  const lists = memos.map(memo => {
+    return(
+      <li>{ memo }</li>
+    )
+  });
+  
   const handleChange = (e) => {
     setText(() => e.target.value);
   }
 
+const saveMemo = () => {
+  const addedMemos = memos.slice();
+  addedMemos.push(text);
+  setState(() => addedMemos);
+}
+
   return (
-    <div>
+    <>
       <h1>Memo App for React</h1>
-      <p>テキスト：{ text }</p>
       <input type="text" value={text} onChange={handleChange} />
-      <button>保存</button>
+      <button onClick={saveMemo}>保存</button>
       <div>
         <ul>
-          <li>memo1</li>
-          <li>memo2</li>
-          <li>memo3</li>
+          { lists }
         </ul>
       </div>
-    </div>
+    </>
   );
 }
 
