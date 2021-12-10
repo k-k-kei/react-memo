@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
+
+  const handleChange = (e) => {
+    setText(() => e.target.value);
+  }
 
   return (
     <div>
       <h1>Memo App for React</h1>
-      <input type="text" value={text} />
+      <p>テキスト：{ text }</p>
+      <input type="text" value={text} onChange={handleChange} />
       <button>保存</button>
       <div>
         <ul>
