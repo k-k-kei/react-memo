@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
+import MemosShow from "../component/inputParts/MemosShow";
 
 const Memo = () => {
   const [memos, setState] = useState(["memo1", "memo2", "memo3"]);
   const [text, setText] = useState("");
-
-  const lists = memos.map(memo => {
-    return(
-      <li>{ memo }</li>
-    )
-  });
   
   const handleChange = (e) => {
     setText(() => e.target.value);
@@ -25,11 +20,7 @@ const saveMemo = () => {
       <h1>Memo App for React</h1>
       <input type="text" value={text} onChange={handleChange} />
       <button onClick={saveMemo}>保存</button>
-      <div>
-        <ul>
-          { lists }
-        </ul>
-      </div>
+      <MemosShow memos={memos} />
     </>
   );
 }
