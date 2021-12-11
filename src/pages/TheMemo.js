@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MemosShow from "../component/inputParts/MemosShow";
+import Button from "../component/generalParts/Button";
 
 const Memo = () => {
   const [memos, setState] = useState(["memo1", "memo2", "memo3"]);
@@ -19,7 +20,9 @@ const saveMemo = () => {
     <>
       <h1>Memo App for React</h1>
       <input type="text" value={text} onChange={handleChange} />
-      <button onClick={saveMemo}>保存</button>
+      {/* ボタンコンポーネント */}
+      <Button onClick={saveMemo} child={"save"} />
+      {/* メモ表示コンポーネント */}
       <MemosShow memos={memos} />
     </>
   );
