@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MemosShow from "../component/inputParts/MemosShow";
+import TextInputForm from "../component/inputParts/TextInputForm";
 import Button from "../component/generalParts/Button";
 
 const Memo = () => {
@@ -19,7 +20,8 @@ const saveMemo = () => {
   return (
     <>
       <h1>Memo App for React</h1>
-      <input type="text" value={text} onChange={handleChange} />
+      {/* テキストインプットフォームコンポーネント */}
+      <TextInputForm value={text} onChange={handleChange} />
       {/* ボタンコンポーネント */}
       <Button onClick={saveMemo} child={"save"} />
       {/* メモ表示コンポーネント */}
